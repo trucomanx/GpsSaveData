@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">GpsSaveData</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="init_gps_save">start program</string>
+    <string name="output_data">Without data</string>
+    <string name="set_label">Set Label</string>
+
+    <string name="toggle_turn_on">Saving Data ...</string>
+    <string name="toggle_turn_off">Start saving data </string>
+
+    <string name="toggle_label_turn_on">Saving label ...</string>
+    <string name="toggle_label_turn_off">Set label</string>
+
+    <string name="texto_output_filename">Output Filename: </string>
+    <string name="filename">salida.dat</string>
+    <string name="complete_filename">.</string>
+
     <string name="action_settings">Settings</string>
 </resources>
