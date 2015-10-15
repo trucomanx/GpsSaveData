@@ -44,7 +44,13 @@
         <SeekBar
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar" />
+            android:id="@+id/seekbar1" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textViewSeekBar" />
 
         <ToggleButton
             android:layout_width="fill_parent"
@@ -54,34 +60,102 @@
             android:text="@string/init_gps_save"
             android:id="@+id/toggleInitProgram" />
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/output_data"
-            android:id="@+id/textDataOutput"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="bold" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:weightSum="1">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:layout_width="252dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/TextSetLabel"
-                android:inputType="text" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Longitude"
+                    android:id="@+id/textViewLongitude" />
 
-            <ToggleButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textOn="@string/toggle_label_turn_on"
-                android:textOff="@string/toggle_label_turn_off"
-                android:text="@string/set_label"
-                android:id="@+id/toggleSetLabel" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/output_data"
+                    android:id="@+id/textDataLongitude"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Latitude"
+                    android:id="@+id/textViewLatitude" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/output_data"
+                    android:id="@+id/textDataLatitude"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Altitude"
+                    android:id="@+id/textViewAltitude" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/output_data"
+                    android:id="@+id/textDataAltitude"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Time"
+                    android:id="@+id/textViewTime" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/output_data"
+                    android:id="@+id/textDataTime"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Accuracy"
+                    android:id="@+id/textViewAccuracy" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/output_data"
+                    android:id="@+id/textDataAccuracy"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
 
     </LinearLayout>
 

@@ -51,6 +51,7 @@ public class PdsSaveDataGPS {
 	private Context ctx;
 	private boolean ERRO=false;
 	private boolean ERROWRITE=false;
+	private boolean cerrado=true;
 
 	File ruta_sd;
 	File f;
@@ -80,6 +81,7 @@ public class PdsSaveDataGPS {
 				this.f 			= new File(ruta_sd.getAbsolutePath(), this.FileName);
 				this.fout		= new OutputStreamWriter(new FileOutputStream(f));
 				this.ERRO=false;
+				this.cerrado=false;
 			}
 			catch (Exception e) {
 				this.ERRO=true;
@@ -117,7 +119,7 @@ public class PdsSaveDataGPS {
 	public void Printf(int ID, String Texto) {
 		String cadena1;
 		
-		if(this.ERRO!=true){
+		if((this.ERRO!=true)&&(this.cerrado==false)){
 			cadena1=ID + "\t" + Texto + "\n";
 
 			try {
@@ -143,6 +145,7 @@ public class PdsSaveDataGPS {
 	public void close() {
 		try {
 			this.fout.close();
+			this.cerrado=true;
 		} catch (IOException e) {
 			e.printStackTrace();
 			Toast toast = Toast.makeText(this.ctx,

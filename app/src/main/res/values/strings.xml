@@ -2,14 +2,16 @@
     <string name="app_name">GpsSaveData</string>
 
     <string name="init_gps_save">start program</string>
+
     <string name="output_data">Without data</string>
-    <string name="set_label">Set Label</string>
+    <string name="Longitude">Longitude : </string>
+    <string name="Latitude">Latitude : </string>
+    <string name="Altitude">Altitude : </string>
+    <string name="Accuracy">Accuracy (m) : </string>
+    <string name="Time">Time (s) : </string>
 
     <string name="toggle_turn_on">Saving Data ...</string>
     <string name="toggle_turn_off">Start saving data </string>
-
-    <string name="toggle_label_turn_on">Saving label ...</string>
-    <string name="toggle_label_turn_off">Set label</string>
 
     <string name="texto_output_filename">Output Filename: </string>
     <string name="filename">salida.dat</string>
