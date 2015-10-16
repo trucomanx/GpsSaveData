@@ -116,7 +116,7 @@ public class PdsSaveDataGPS {
 	 * @param Y Segundo dado a ser escrito no arquivo.
 	 * @param Z Terceiro dado a ser escrito no arquivo.
 	 **/
-	public void Printf(int ID, String Texto) {
+	public void Printf(long ID, String Texto) {
 		String cadena1;
 		
 		if((this.ERRO!=true)&&(this.cerrado==false)){

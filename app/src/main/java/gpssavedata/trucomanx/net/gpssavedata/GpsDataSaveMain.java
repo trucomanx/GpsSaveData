@@ -36,7 +36,7 @@ public class GpsDataSaveMain extends ActionBarActivity {
 
     private SeekBar seekbar1; //Your SeekBar
     private TextView textViewSeekBar;
-    int value;        //The SeekBar value output
+    private int value;        //The SeekBar value output
 
     private TextView textDataAccuracy;
     private TextView textDataAltitude;
@@ -44,6 +44,8 @@ public class GpsDataSaveMain extends ActionBarActivity {
     private TextView textDataLatitude;
     private TextView textDataTime;
     long timezero=-1;
+
+    private long ID=0;
 
     String Filename;
 
@@ -215,7 +217,8 @@ public class GpsDataSaveMain extends ActionBarActivity {
             if(timezero<0)  timezero=time;
 
             String s = longitude + "\t" + latitude + "\t" + altitude + "\t" + ((time-timezero)/1000.0) + "\t" + accurancy+"\n";
-            FileOutputGPS.Printf(1,s);
+            FileOutputGPS.Printf(ID,s);
+            ID=ID+1;
             textDataAccuracy.setText(accurancy + " ");
             textDataAltitude.setText(altitude + " ");
             textDataLatitude.setText(latitude + " ");
