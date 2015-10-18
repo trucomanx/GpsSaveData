@@ -1,5 +1,6 @@
 package gpssavedata.trucomanx.net.gpssavedata;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.MenuItem;
 
 import android.view.View;
 //import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ToggleButton;
@@ -51,7 +53,15 @@ public class GpsDataSaveMain extends ActionBarActivity {
 
     LocationListener locationListener ;
 
+    private int OrientationOld;
+
     ////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * Llamado cuando el programa inicia
+     * Tambien inmediatamente despues de que la pantalla gira
+     *
+     * @see android.app.Activity#onCreate
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +113,11 @@ public class GpsDataSaveMain extends ActionBarActivity {
         toggleInitProgram.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 if (toggleInitProgram.isChecked()) {
+
+                    OrientationOld=getRequestedOrientation();
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+                    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
                     Filename = TextOutputFileName.getText().toString();
 
                     FileOutputGPS = new PdsSaveDataGPS(getApplicationContext(), Filename);
@@ -133,6 +148,9 @@ public class GpsDataSaveMain extends ActionBarActivity {
                     Toast.makeText(getApplicationContext(), "Gps stopped", Toast.LENGTH_SHORT).show();
                     // turn off to save battery
                     lm.removeUpdates(locationListener);
+
+                    setRequestedOrientation(OrientationOld);
+                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                 }
             }
         });
@@ -142,8 +160,11 @@ public class GpsDataSaveMain extends ActionBarActivity {
     }
 
     /**
-     * onResume is is always called after onStart, even if the app hasn't been
-     * paused
+     * onResume is is always called after onStart, even if the app hasn't been paused
+     *
+     * LLamado cuando el "programa" esta en funcionamento.
+     * Tambien inmediatamente despues de que la pantalla gira.
+     * Tambien cuando vuelves de pantalla apagada o de usar otro programa.
      *
      * @see android.app.Activity#onResume()
      */
@@ -182,10 +203,17 @@ public class GpsDataSaveMain extends ActionBarActivity {
         Toast.makeText(this, "activity killed", Toast.LENGTH_SHORT).show();
         // turn off to save battery
         lm.removeUpdates(locationListener);
+
+        FileOutputGPS.close();
+        setRequestedOrientation(OrientationOld);
         super.finish();
     }
 
     /**
+     * Llamado cuando el programa finaliza.
+     * Tambien inmediatamente antes de que la pantalla gire.
+     * Tambien quando cambias de pantalla a otro programa.
+     *
      * @see android.app.Activity#onStop()
      */
     @Override
